@@ -2,13 +2,7 @@
 class Solution {
 public:
     int fib(int n) {
-        double sqrt_5 = std::sqrt(5);
-        double phi = (1 + sqrt_5) / 2;
-        double psi = (1 - sqrt_5) /2;
-
-        double term1 = std::pow(phi, n) / sqrt_5;
-        double term2 = std::pow(psi, n) / sqrt_5;
-
-        return static_cast<int>(round(term1 - term2));
+        double s = std::sqrt(5), a = (1 + s) / 2, b = (1 - s) / 2;
+        return round((std::pow(a, n) - std::pow(b, n)) / s);
     }
 };
