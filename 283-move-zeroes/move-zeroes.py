@@ -4,16 +4,11 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         # find first zero(valid position) i
-        for i in range(len(nums)):
-            if nums[i] == 0:
-                for j in range(i, len(nums)):
-                    if nums[j] != 0:
-                        nums[i] = nums[j]
-                        nums[j] = 0
-                        break
-                    if j == len(nums) - 1:
-                        return
-        # fix that index and look for a non zero number j
-        # swap num with the zero
-        #
+        left = 0
+        for right in range(len(nums)):
+            if nums[right] != 0:
+                nums[right], nums[left] = nums[left], nums[right]
+                left += 1
+        return nums
+
             
